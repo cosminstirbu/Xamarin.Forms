@@ -24,10 +24,14 @@ namespace Embedding.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
+			SetContentView(Resource.Layout.Main);
+
+			if (bundle != null)
+			{
+				return;
+			}
 
 			Forms.Init(this, null);
-
-			SetContentView (Resource.Layout.Main);
 			
 			var ft = SupportFragmentManager.BeginTransaction();
 			ft.Replace(Resource.Id.fragment_frame_layout, new MainFragment(), "main");
